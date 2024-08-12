@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예상 경비 시뮬레이터</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWXoaZG5kJLxYap_KigZvzNmrrq6FG28&libraries=places&callback=initMap" async defer></script>
+</head>
+<body>
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/10061/10061742.png" alt="로고" id="logo">
+    <h1>예상 경비 시뮬레이터</h1>
+</header>
+<main>
+    <div id="search-container">
+        <label for="address" id="address-label">주소 &nbsp &nbsp</label>
+        <input type="text" id="address" placeholder="주소를 입력하세요" onfocus="handleInputFocus()" onblur="handleInputBlur()" oninput="handleInputChange()">
+    </div>
+    <div id="category-search">
+        <select id="categories">
+            <option value="">카테고리를 선택하세요</option>
+
+        </select>
+        <select id="contents">
+            <option value="">타입을 선택하세요</option>
+        </select>
+        <button id="search-button">검색</button>
+    </div>
+    <div id="content-wrapper">
+        <div id="map" class="full-width"></div>
+        <div id="resultContainer"></div>
+    </div>
+    <div id="selected-container">
+        <h2>선택한 종류</h2>
+        <ul id="selectedList"></ul>
+        <button id="undo-button">되돌리기</button>
+        <button id="view-results-button">결과 보기</button>
+    </div>
+    <div>
+        <a id="addPlace" href="/Rsimulator/addPlace">장소 추가</a>
+    </div>
+    <div>
+        <button id="home-button" onclick="location.href='/home'">홈으로 돌아가기</button>
+    </div>
+</main>
+<script src="/static/placetype.js"></script>
+<script src="/static/simulator.js"></script>
+</body>
+</html>

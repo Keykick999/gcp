@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "/geoCoding.js"></script>
+    <style>
+        /* 지도와 결과 목록의 스타일을 설정 */
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        #resultContainer {
+            width: 100%;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+주소 : <input type = "text">
+<select id = "contents">
+    <option value = "">타입을 선택하세요</option>
+</select>
+<button type = "submit" onclick = "getCoordinate()">검색</button>
+<div id = "resultContainer">
+</div>
+</body>
+</html>

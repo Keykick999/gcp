@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Places Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+        }
+        #map {
+            height: 100vh;
+            width: 70%;
+        }
+        #resultContainer {
+            width: 30%;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        #resultContainer div {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        #resultContainer h3 {
+            margin: 0 0 5px 0;
+        }
+        #resultContainer p {
+            margin: 5px 0;
+            color: #555;
+        }
+        #resultContainer img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+        .stars {
+            display: inline-block;
+        }
+        .stars::before {
+            content: '★★★★★';
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #fc0 calc(var(--rating) * 20%), #ddd calc(var(--rating) * 20%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #searchContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30%;
+            padding: 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        #searchContainer input {
+            width: calc(100% - 80px);
+            padding: 5px;
+            margin-right: 10px;
+        }
+        #searchContainer button {
+            padding: 5px 10px;
+        }
+        #resultContainer {
+            padding-top: 60px; /* Adjust padding to account for the fixed search container */
+        }
+    </style>
+</head>
+<body>
+<div id="searchContainer">
+    <input id="search-input" type="text" placeholder="Search for places">
+    <button id="search-button">Search</button>
+</div>
+<div id="resultContainer"></div>
+<div id="map"></div>
+<script src="/script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWXoaZG5kJLxYap_KigZvzNmrrq6FG28&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

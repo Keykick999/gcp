@@ -1,0 +1,82 @@
+body {
+    font-family: Pretendard, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 10px 0 0;
+}
+
+main {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#result-container {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px; /* 추가된 부분: 결과 컨테이너 아래에 충분한 여백 추가 */
+}
+
+#selected-items,
+#total-cost {
+    width: 45%;
+}
+
+#selected-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+#selected-items ul li {
+    margin: 5px 0;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+}
+
+#button-container {
+    display: flex;
+    gap: 20px;
+}
+
+#button-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#button-container button:hover {
+    background-color: #0056b3;
+}

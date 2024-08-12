@@ -1,0 +1,55 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#record-container {
+    margin-top: 20px;
+}
+
+.record-set {
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #007bff;
+}
+
+.record-set .total-price {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.record-set .place-item {
+    padding: 8px 0;
+    border-top: 1px solid #e9ecef;
+}
+
+.record-set .place-item:first-child {
+    border-top: none;
+}
