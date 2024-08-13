@@ -9,7 +9,7 @@ public class MyController {
     @GetMapping("/home")
     public String home() {
         System.out.println("실행");
-        return "/home";
+        return "/hom";
     }
 
     @GetMapping("/Rsimulator/description")
