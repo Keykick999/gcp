@@ -17,6 +17,12 @@ public class MemberRestController {
     private MemberService memberService;
 
 
+    // commit 반영되나 확인
+    @GetMapping("/practice")
+    public String example() {
+        return "practice";
+    }
+
     // 회원 가입
     @PostMapping("/signUp")
     public ResponseEntity<String> signUp(@RequestBody Member signUpRequest) {
