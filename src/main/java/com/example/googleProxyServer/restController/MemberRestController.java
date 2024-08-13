@@ -20,7 +20,7 @@ public class MemberRestController {
     // commit 반영되나 확인
     @GetMapping("/practice")
     public String example() {
-        return "hell";
+        return "helowowol";
     }
 
     // 회원 가입
