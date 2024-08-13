@@ -21,10 +21,15 @@ jobs:
           install_components: 'gke-gcloud-auth-plugin'
 
       - name: SSH into GCP VM Instance
-        run: |
-          gcloud compute ssh ${{ secrets.GCP_USERNAME }}@${{ secrets.GCP_INSTANCE_NAME }} --zone ${{ secrets.GCP_ZONE }} --command="
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GCP_INSTANCE_EXTERNAL_IP }}
+          username: ${{ secrets.GCP_USERNAME }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
             cd gcp 
             git pull origin master
             ./gradlew clean build
             sudo fuser -k -n tcp 8080 || true 
-            nohup java -jar build/libs/*SNAPSHOT.jar > ./output.log 2>&1 &"
+            nohup java -jar build/libs/*SNAPSHOT.jar > ./output.log 2>&1 &
