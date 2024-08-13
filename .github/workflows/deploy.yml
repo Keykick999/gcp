@@ -1,0 +1,27 @@
+name: Deploy To GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          version: 'latest'
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }} # GCP 서비스 계정 키
+          export_default_credentials: true
+
+      - name: SSH into GCP VM Instance
+        run: |
+          gcloud compute ssh ${{ secrets.GCP_USERNAME }}@${{ secrets.GCP_INSTANCE_NAME }} --zone ${{ secrets.GCP_ZONE }} --command="
+            cd /home/ubuntu/instagram-server # 여기 경로는 자신의 GCP VM에 맞는 경로로 재작성하기
+            git pull origin main
+            ./gradlew clean build
+            sudo fuser -k -n tcp 8080 || true # || true를 붙인 이유는 8080에 종료시킬 프로세스가 없더라도 실패로 처리하지 않기 위해서이다. 
+            # jar 파일을 실행시키는 명령어이다. 그리고 발생하는 로그들을 ./output.log 파일에 남기는 명령어이다.
+            nohup java -jar build/libs/*SNAPSHOT.jar > ./output.log 2>&1 &"
